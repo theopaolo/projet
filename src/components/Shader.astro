@@ -1,0 +1,62 @@
+---
+---
+
+<div id="canvas" style="width: 100vw; height: 100vh;"></div>
+
+<script>
+  document.addEventListener('client:load', async () => {
+    const { Renderer, Camera, Transform, Box, Program, Mesh, Vec3 } = await import('ogl');
+
+    const renderer = new Renderer({ dpr: 2 });
+    const gl = renderer.gl;
+    document.getElementById('canvas').appendChild(gl.canvas);
+
+    const camera = new Camera(gl, { fov: 35 });
+    camera.position.z = 5;
+
+    const scene = new Transform();
+
+    const vertexShader = /* glsl */ `
+      attribute vec3 position;
+      attribute vec2 uv;
+
+      uniform mat4 modelViewMatrix;
+      uniform mat4 projectionMatrix;
+
+      varying vec2 vUv;
+
+      void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+      }
+    `;
+
+    const fragmentShader = /* glsl */ `
+      precision highp float;
+
+      varying vec2 vUv;
+
+      void main() {
+        vec3 color = vec3(vUv.x, vUv.y, 1.0);
+        gl_FragColor = vec4(color, 1.0);
+      }
+    `;
+
+    const geometry = new Box(gl);
+    const program = new Program(gl, { vertex: vertexShader, fragment: fragmentShader });
+    const mesh = new Mesh(gl, { geometry, program });
+    mesh.setParent(scene);
+
+    const rotation = new Vec3();
+
+    requestAnimationFrame(update);
+    function update(t) {
+      requestAnimationFrame(update);
+
+      rotation.y += 0.01;
+      mesh.rotation.copy(rotation);
+
+      renderer.render({ scene, camera });
+    }
+  });
+</script>
