@@ -13,7 +13,7 @@ export default {
 				dark: '#5c4a3d',
 			},
 			fontSize: {
-			  'fluid-3xl': 'clamp(1.2rem, 1.5vw, 1.8rem)',
+			  'fluid-3xl': 'clamp(1.2rem, 1.5vw, 1.7rem)',
 			},
 			fontFamily: {
 				'serif': ['GEORGIANO','serif'],
