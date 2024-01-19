@@ -1,0 +1,17 @@
+---
+// import plyr css
+import 'plyr/dist/plyr.css';
+---
+
+<video id="player" width="320" height="240" controls>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<script>
+    import Plyr from 'plyr';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const player = new Plyr('#player');
+    });
+</script>

@@ -1,110 +1,166 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Shader from '../components/Shader.astro';
+import Layout from "../layouts/Layout.astro";
+import Form from "../components/Form.astro";
+import Cal from "../components/Cal.astro";
+import Modal from "../components/Modal.astro";
+import Chakras from "../components/Chakras.astro";
+import Video from "../components/Video.astro";
+
+import { Image } from "astro:assets";
+const images = await Astro.glob("../images/*.jpeg");
+const randomIndex = Math.floor(Math.random() * images.length);
+const randomImage = images[randomIndex];
 ---
 
-
 <Layout title="Welcome to Astro.">
-    <Shader />
-    <main>
-        <div class="intro flex-grow">
-            <div class="content flex flex-col justify-center items-center h-full">
-                <h1 class="mb-4 text-center">
-                    <span>Le corps en poésie</span>
-                    <figure class="portrait inline-block w-48">
-                        <img src="https://picsum.photos/800/800" alt="Image" class="w-full h-auto">
-                    </figure>
-                </h1>
+  <main>
+    <div class="intro flex-grow">
+      <div class="content flex flex-col justify-center items-center h-full">
+        <h1 class="mb-4 text-center leading-none">
+          <span class="title-container flex justify-center">
+            <span class="title leading-none">Le corps en</span>
+          </span>
+
+          <span class="title-container flex justify-center items-center">
+            <div class="fadeup hidden">
+              <svg
+                class="spin"
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M78.9653 40.6256C72.4644 39.9234 66.9367 36.0739 58.3016 35.5442C57.6749 35.5057 57.0425 35.5035 56.4089 35.5261C69.7866 28.9871 78.4445 19.1212 74.0578 21.0592C68.0768 23.7015 61.3649 23.1316 53.6218 26.9904C53.0598 27.2704 52.511 27.5846 51.9736 27.921C60.2895 15.5693 62.8545 2.69619 60.0245 6.56788C56.1659 11.8467 50.0683 14.7092 45.292 21.9224C44.9453 22.446 44.6272 22.9925 44.3299 23.5525C45.3559 8.69764 41.1407 -3.73329 40.6256 1.03472C39.9235 7.53559 36.074 13.0633 35.5442 21.6983C35.5058 22.3251 35.5035 22.9575 35.526 23.591C28.9871 10.2134 19.1212 1.55554 21.0592 5.94226C23.7015 11.9233 23.1317 18.6352 26.9904 26.3782C27.2704 26.9402 27.5847 27.489 27.921 28.0264C15.5693 19.7105 2.69614 17.1456 6.56787 19.9756C11.8467 23.8341 14.7091 29.9317 21.9224 34.708C22.446 35.0546 22.9926 35.3728 23.5525 35.6701C8.69766 34.6441 -3.73327 38.8594 1.0347 39.3744C7.53558 40.0765 13.0633 43.926 21.6984 44.4558C22.3251 44.4942 22.9575 44.4965 23.5911 44.4739C10.2134 51.0128 1.55556 60.8788 5.94224 58.9408C11.9233 56.2985 18.6352 56.8684 26.3782 53.0096C26.9402 52.7295 27.489 52.4153 28.0264 52.079C19.7105 64.4307 17.1455 77.3038 19.9755 73.4321C23.8341 68.1533 29.9317 65.2908 34.708 58.0776C35.0547 57.554 35.3729 57.0075 35.6701 56.4475C34.6441 71.3024 38.8594 83.7333 39.3744 78.9653C40.0765 72.4644 43.926 66.9367 44.4558 58.3017C44.4942 57.6749 44.4965 57.0425 44.474 56.409C51.0129 69.7866 60.8788 78.4445 58.9408 74.0577C56.2985 68.0767 56.8684 61.3648 53.0097 53.6218C52.7296 53.0598 52.4153 52.511 52.079 51.9736C64.4308 60.2895 77.3039 62.8544 73.4321 60.0244C68.1533 56.1659 65.2909 50.0683 58.0776 45.292C57.554 44.9453 57.0074 44.6272 56.4475 44.3299C71.3023 45.3558 83.7333 41.1406 78.9653 40.6256Z"
+                  fill="#c8bed2"></path>
+              </svg>
             </div>
-        </div>
 
-        <div>
-            <p class="mx-auto text-center max-w-[75ch] leading-normal font-light text-3xl">
-                Bienvenue ! Je suis Stéphanie, danseuse professionnelle et praticienne certifiée en massages bien-être depuis 2023. Ma passion pour la danse contemporaine m'a menée à explorer le corps humain sous toutes ses formes, découvrant la profondeur de son potentiel pour le bien-être et la relaxation. Formée au centre Temana à Lyon, j'ai acquis des compétences uniques pour offrir des expériences de massage personnalisées et apaisantes.
-            </p>
-        </div>
+            <span class="title leading-none pt-8 lg:pt-20 px-2 md:px-10">poésie</span>
 
-        <div class="flex gap-8">
-            <figure class="intro-img md:max-w-xl w-full md:w-1/2">
-                <img src="https://picsum.photos/400/600" alt="Image" class="w-full">
-                <figcaption>Image</figcaption>
-            </figure>
-
-            <div class="texte w-full md:w-1/2">
-                <h2 class="text-4xl">Un Cheminement Vers le Bien-Être</h2>
-                <p class="max-w-prose w-full ml-auto mt-4">
-                    Mon parcours est marqué par une quête constante de connaissance et d'épanouissement corporel. Cette démarche m'a permis de m'immerger dans diverses formations et stages, enrichissant ma pratique. Mon objectif est simple : utiliser mon expertise en danse et en massage pour vous aider à trouver détente et harmonie, en répondant aux besoins spécifiques de votre corps et de votre esprit.
-                </p>
-
-                <h2 class="text-4xl mt-12">La Danse et le Massage : Un Duo Harmonieux</h2>
-                <p class="max-w-prose w-full mt-4">
-                    En tant que danseuse, j'ai développé une écoute attentive et une sensibilité accrue aux besoins du corps. Cette connexion intime avec le mouvement et la matérialité corporelle s'est renforcée suite à des blessures personnelles, qui m'ont enseigné l'importance de la douceur et de l'harmonie entre l'intensité de la danse et le soin de soi.
-                    Le massage est apparu dans ma vie comme un allié précieux, un partenaire dans mon parcours vers une compréhension plus profonde du corps et de ses capacités illimitées. Cette pratique est devenue pour moi un chemin vers plus de douceur, d'équilibre et d'authenticité.
-                    Je vous invite à me rejoindre dans ce voyage intérieur, un périple vers la découverte et la célébration de notre corps, de sa vulnérabilité, de son humilité et de sa simplicité. Ensemble, explorons les mystères et les merveilles du corps humain.
-                </p>E
+            <div class="fadeup hidden">
+              <svg
+                class="spin"
+                width="80"
+                height="80"
+                viewBox="0 0 80 80"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M78.9653 40.6256C72.4644 39.9234 66.9367 36.0739 58.3016 35.5442C57.6749 35.5057 57.0425 35.5035 56.4089 35.5261C69.7866 28.9871 78.4445 19.1212 74.0578 21.0592C68.0768 23.7015 61.3649 23.1316 53.6218 26.9904C53.0598 27.2704 52.511 27.5846 51.9736 27.921C60.2895 15.5693 62.8545 2.69619 60.0245 6.56788C56.1659 11.8467 50.0683 14.7092 45.292 21.9224C44.9453 22.446 44.6272 22.9925 44.3299 23.5525C45.3559 8.69764 41.1407 -3.73329 40.6256 1.03472C39.9235 7.53559 36.074 13.0633 35.5442 21.6983C35.5058 22.3251 35.5035 22.9575 35.526 23.591C28.9871 10.2134 19.1212 1.55554 21.0592 5.94226C23.7015 11.9233 23.1317 18.6352 26.9904 26.3782C27.2704 26.9402 27.5847 27.489 27.921 28.0264C15.5693 19.7105 2.69614 17.1456 6.56787 19.9756C11.8467 23.8341 14.7091 29.9317 21.9224 34.708C22.446 35.0546 22.9926 35.3728 23.5525 35.6701C8.69766 34.6441 -3.73327 38.8594 1.0347 39.3744C7.53558 40.0765 13.0633 43.926 21.6984 44.4558C22.3251 44.4942 22.9575 44.4965 23.5911 44.4739C10.2134 51.0128 1.55556 60.8788 5.94224 58.9408C11.9233 56.2985 18.6352 56.8684 26.3782 53.0096C26.9402 52.7295 27.489 52.4153 28.0264 52.079C19.7105 64.4307 17.1455 77.3038 19.9755 73.4321C23.8341 68.1533 29.9317 65.2908 34.708 58.0776C35.0547 57.554 35.3729 57.0075 35.6701 56.4475C34.6441 71.3024 38.8594 83.7333 39.3744 78.9653C40.0765 72.4644 43.926 66.9367 44.4558 58.3017C44.4942 57.6749 44.4965 57.0425 44.474 56.409C51.0129 69.7866 60.8788 78.4445 58.9408 74.0577C56.2985 68.0767 56.8684 61.3648 53.0097 53.6218C52.7296 53.0598 52.4153 52.511 52.079 51.9736C64.4308 60.2895 77.3039 62.8544 73.4321 60.0244C68.1533 56.1659 65.2909 50.0683 58.0776 45.292C57.554 44.9453 57.0074 44.6272 56.4475 44.3299C71.3023 45.3558 83.7333 41.1406 78.9653 40.6256Z"
+                  fill="#c8bed2"></path>
+              </svg>
             </div>
+          </span>
+        </h1>
+      </div>
+    </div>
+
+    <div>
+      <p
+        class="mx-auto text-center max-w-[75ch] leading-normal font-light text-fluid-3xl"
+      >
+        Bienvenue ! Je suis Stéphanie, danseuse professionnelle et praticienne certifiée en massages bien-être depuis 2023. Ma passion pour la danse contemporaine m'a menée à explorer le corps humain sous toutes ses formes, découvrant la profondeur de son potentiel pour le bien-être et la relaxation. Formée au centre Temana à Lyon, j'ai acquis des compétences uniques pour offrir des expériences de massage personnalisées et apaisantes.
+      </p>
+    </div>
+
+    <div class="mt-16 max-w-screen-lg mx-auto">
+      <Video />
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-10 my-20 md:my-40 items-stretch">
+      <figure class="intro-img w-full lg:w-1/3 flex flex-col flex-grow">
+        <div class="w-full h-full object-cover">
+          <Image
+            src={randomImage.default}
+            widths={[240, 540, 720, randomImage.width]}
+            alt="Le corps en poésie"
+            class="h-full object-cover"
+          />
         </div>
+      </figure>
 
-        <section class="grid">
-            <article class="box">
-                <h3>Nom du contenue</h3>
-                <p>Un courts sous titre pour ce type de contenu</p>
-                <img src="https://picsum.photos/800/800" alt="Image">
-            </article>
+      <div class="texte w-full lg:w-2/3 flex-grow">
+        <span class="title-container flex">
+          <h2 class="text-4xl title text-accent2">
+            Un Cheminement Vers le Bien-Être
+          </h2>
+        </span>
 
-            <article>
-                <section class="vertical">
-                    <article class="box">
-                        <a href="">Instagram</a>
-                    </article>
-                    <article class="box">
-                        <a href="">Autre plateforme</a>
-                    </article>
-                </section>
-            </article>
-        </section>
+        <p class="w-full ml-auto mt-4">
+          Mon parcours est marqué par une quête constante de connaissance et d'épanouissement corporel. Cette démarche m'a permis de m'immerger dans diverses formations et stages, enrichissant ma pratique. Mon objectif est simple : utiliser mon expertise en danse et en massage pour vous aider à trouver détente et harmonie, en répondant aux besoins spécifiques de votre corps et de votre esprit.
+        </p>
 
-        <div class="contact" id="contact">
-            <h2>Contacter</h2>
-            <form action="https://submit-form.com/jg9MRheYJ">
-                <div class="flex gap-4">
-                    <div class="flex-col gap-4">
-                        <label for="name">Nom</label>
-                        <input type="text" placeholder="Nom" name='name'>
-                    </div>
+        <span class="title-container flex">
+          <h2 class="text-4xl mt-12 title text-accent2">
+            La Danse et le Massage : Un Duo Harmonieux
+          </h2>
+        </span>
+        <p class="w-full mt-4">
+          En tant que danseuse, j'ai développé une écoute attentive et une sensibilité accrue aux besoins du corps. Cette connexion intime avec le mouvement et la matérialité corporelle s'est renforcée suite à des blessures personnelles, qui m'ont enseigné l'importance de la douceur et de l'harmonie entre l'intensité de la danse et le soin de soi. Le massage est apparu dans ma vie comme un allié précieux, un partenaire dans mon parcours vers une compréhension plus profonde du corps et de ses capacités illimitées. Cette pratique est devenue pour moi un chemin vers plus de douceur, d'équilibre et d'authenticité. Je vous invite à me rejoindre dans ce voyage intérieur, un périple vers la découverte et la célébration de notre corps, de sa vulnérabilité, de son humilité et de sa simplicité. Ensemble, explorons les mystères et les merveilles du corps humain.
+        </p>
+      </div>
+    </div>
 
-                    <div class="flex-col gap-4">
-                        <label for="forename">Prénom</label>
-                        <input type="text" placeholder="Prénom" name="forename">
-                    </div>
-                </div>
+    <div class="flex flex-col sm:flex-row gap-4 mx-auto max-w-screen-2xl mt-20">
 
-                <div class="flex gap-4">
-                    <div class="flex-col gap-4">
-                        <label for="email">Email</label>
-                        <input type="email" placeholder="Email" name="email">
-                    </div>
+        <Modal buttonName="Me contacter" title="Formulaire de Contact">
+          <Form />
+        </Modal>
 
-                    <div class="flex-col gap-4">
-                        <label for="tel">Téléphone</label>
-                        <input type="tel" placeholder="Téléphone" name="tel">
-                    </div>
-                </div>
-                <label for="tel">Votre message</label>
-                <textarea name="message" id="message" cols="30" rows="10"></textarea>
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
-    </main>
+        <a href="https://www.instagram.com/lecorpsenpoesie" target="_blank" class="bg-accent rounded-lg p-4 border transition-colors group hover:bg-light border-indigo-400 shadow-inner flex-1 aspect-[] ">
+            <h3 class="title-container flex text-3xl items-center h-full justify-center font-serif text-light group-hover:text-accent22 active:text-accent2">
+                <span class="title">Instagram</span>
+            </h3>
+        </a>
+
+        <Modal buttonName="Prendre rendez-vous" title="Calendrier">
+          <Cal />
+        </Modal>
+    </div>
+
+  <Chakras />
+
+  </main>
 </Layout>
 
 <style>
-    main {
-        margin: auto;
-        padding: 1rem;
-        width: 90%;
-        max-width: 1440px;
-        font-size: 20px;
-        line-height: 1.6;
-    }
+  main {
+    margin: auto;
+    padding: 1rem;
+    max-width: 1440px;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const containers = document.querySelectorAll(".title-container");
+
+    const animateTitle = (title) => {
+      title.style.animation =
+        "fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards";
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const title = entry.target.querySelector(".title");
+            if (title) {
+              animateTitle(title);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Triggers when 10% of the element is visible
+      }
+    );
+
+    containers.forEach((container) => observer.observe(container));
+  });
+</script>

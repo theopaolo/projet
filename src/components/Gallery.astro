@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets';
+const images = await Astro.glob('../gallery/*.jpeg');
+---
+
+<div class="gallery-container relative flex items-center justify-center w-full my-4 gap-4">
+    {images.slice(0,4).map((img) => (
+        <div class="frame rounded-lg w-full object-contain border border-light">
+            <Image src={img.default} widths={[240, 540, img.width]} alt="Gallery image" />
+        </div>
+      ))}
+</div>
+
+<style>
+    .gallery-container {
+        height: 70vh;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+    const container = document.querySelector('.gallery-container');
+        const box = document.querySelector('.frame');
+        const boxes = document.querySelectorAll('.frame');
+        const totalBoxes = boxes.length;
+        let mouseX = 0;
+        let mouseY = 0;
+        let moveDirection = 1;
+        let x = 0;
+        let y = 0;
+
+        let isAnimating = true;
+
+        function levitate() {
+            const maxMove = 5;
+            if (isAnimating) {
+                boxes.forEach((box, index) => {
+                    if (!box.x) {
+                        box.x = 0;
+                        box.y = 0;
+                        box.moveDirection = 1;
+                    }
+
+                    let speedFactor = index % 3 === 0 ? 0.2 : index % 2 === 0 ? 0.15 : 0.1;
+                    box.x += speedFactor * box.moveDirection;
+                    box.y += speedFactor * box.moveDirection;
+
+                    if (box.x > maxMove || box.x < -maxMove || box.y > maxMove || box.y < -maxMove) {
+                        box.moveDirection *= -1;
+                    }
+
+                    box.style.transform = `translate3d(${box.x}px, ${box.y}px, 0)`;
+                    box.style.transition = 'all 0.5s ease'
+                });
+
+                requestAnimationFrame(levitate);
+            }
+        } levitate();
+
+
+        container.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            isAnimating = false;
+
+            requestAnimationFrame(() => {
+                for (let i = 0; i < boxes.length; i++) {
+                    boxes[i].style.transition = 'none';
+                    if (i % 2 === 0) {
+                        boxes[i].style.transform = `translate3d(${(mouseX - (window.innerWidth / 2)) / 5}px, ${(mouseY - (window.innerHeight / 2)) / 5}px, 0)`;
+                    } else if (i % 3 === 0) {
+                        boxes[i].style.transform = `translate3d(${(mouseX - (window.innerWidth / 2)) / 15}px, ${(mouseY - (window.innerHeight / 2)) / 15}px, 0)`;
+                    } else {
+                        boxes[i].style.transform = `translate3d(${(mouseX - (window.innerWidth / 2)) / 10}px, ${(mouseY - (window.innerHeight / 2)) / 10}px, 0)`;
+                    }
+                }
+            });
+        });
+
+        container.addEventListener('mouseleave', () => {
+            requestAnimationFrame(() => {
+                for (let i = 0; i < boxes.length; i++) {
+                    boxes[i].style.transform = 'translate3d(0, 0, 0)';
+                    boxes[i].style.transition = 'all 0.5s ease';
+                }
+            });
+
+            isAnimating = true;
+            levitate();
+        });
+};
+
+</script>

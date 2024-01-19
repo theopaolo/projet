@@ -1,0 +1,93 @@
+<canvas id="canvas"></canvas>
+<style>
+    .chakra{
+        transition: all 1s ease-in-out;
+        display: none;
+    }
+
+    #canvas {
+        filter: blur(120px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -9999;
+    }
+</style>
+<script>
+    class Circle {
+    constructor(radius, color, x, y, startFrame) {
+        this.radius = radius;
+        this.color = color;
+        this.centerX = x;
+        this.centerY = y;
+        this.startFrame = startFrame;
+        this.angle = -Math.PI / 2;
+        this.currentFrame = 0; // Tracks the current frame for each circle
+    }
+
+    draw(ctx) {
+        let x = this.centerX + this.radius * Math.cos(this.angle);
+        let y = this.centerY + this.radius * Math.sin(this.angle);
+
+        ctx.beginPath();
+        ctx.arc(x, y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+    }
+
+    update() {
+        this.currentFrame++;
+        if (this.currentFrame >= this.startFrame) {
+            // Increment the angle to complete a rotation over a set period
+            this.angle += (2 * Math.PI) / 180;
+
+            if (this.angle > 2 * Math.PI) {
+                this.angle -= 2 * Math.PI; // Reset the angle after completing a rotation
+            }
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let canvas = document.getElementById('canvas');
+    let ctx = canvas.getContext('2d');
+    let circles = [];
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        createCircles();
+    }
+
+    function createCircles() {
+        const CIRCLESNUM = 7;
+        let circleDiameter = canvas.height / CIRCLESNUM;
+        let colors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#0000FF', '#4B0082', '#EE82EE'];
+        circles = [];
+        let staggerFrames = 40; // Number of frames to delay each subsequent circle
+
+        for (let i = 0; i < CIRCLESNUM; i++) {
+            let x = canvas.width / 2;
+            let y = circleDiameter / 2 + i * circleDiameter;
+            circles.push(new Circle(circleDiameter / 2, colors[i], x, y, i * staggerFrames));
+        }
+    }
+
+    function drawCircles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        circles.forEach(circle => {
+            circle.update();
+            circle.draw(ctx);
+        });
+    }
+
+    function animate() {
+        drawCircles();
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animate(); // Start the animation loop
+});
+</script>

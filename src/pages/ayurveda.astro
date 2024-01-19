@@ -1,53 +1,160 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Chakras from '../components/Chakras.astro';
+import Gallery from '../components/Gallery.astro';
 ---
 
 <Layout title="L'Ayurveda">
-<main>
-	<header>
-		<h1>Notions Clés de l’Ayurvéda</h1>
-		<!-- Brief Introductory Paragraph -->
-		<p>L'Ayurvéda, signifiant "science de la vie" en sanskrit, est une science ancestrale issue de la civilisation de la vallée de l'Indus. </p>
-	</header>
+<main class="max-w-screen-xl mx-auto mt-20">
+    <header class="intro">
+        <h1 class="text-4xl text-center flex flex-col">
+            <span class="title-container flex justify-center">
+                <span class="title">Notions Clés</span>
+            </span>
+            <span class="title-container flex justify-center">
+                <span class="title">de</span>
+            </span>
+            <span class="title-container flex justify-center">
+                <span class="title">l’Ayurvéda</span>
+            </span>
+        </h1>
+        <!-- Brief Introductory Paragraph -->
+        <p class="text-fluid-3xl text-center">L'Ayurvéda, signifiant "science de la vie" en sanskrit, est une science ancestrale issue de la civilisation de la vallée de l'Indus. </p>
+    </header>
 
-	<!-- History and Origin Section -->
-	<section class="section" id="history-origin">
-		<h2>History and Origin</h2>
-		<p>Existante depuis environ 5 000 ans, elle trouve son origine vers 2500 av. J.-C. Malgré les vicissitudes de l'Histoire, cette civilisation et la tradition ayurvédique demeurent vivantes aujourd'hui, à l'instar de la médecine traditionnelle chinoise. L'Ayurvéda se pratique principalement en Inde, mais aussi dans d'autres régions du monde, y compris en Occident.</p>
-	</section>
+    <section class="max-w-screen-xl mx-auto grid mr-10 lg:mt-20 md:grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- History and Origin Section -->
+        <article id="history-origin">
+            <span class="title-container flex">
+                <h2 class="text-4xl title text-accent">Les Origines</h2>
+            </span>
+            <p>Existante depuis environ 5 000 ans, elle trouve son origine vers 2500 av. J.-C. Malgré les vicissitudes de l'Histoire, cette civilisation et la tradition ayurvédique demeurent vivantes aujourd'hui, à l'instar de la médecine traditionnelle chinoise. L'Ayurvéda se pratique principalement en Inde, mais aussi dans d'autres régions du monde, y compris en Occident.</p>
+            <span class="hover-element"></span>
+        </article>
 
-	<!-- Principles of Ayurveda Section -->
-	<section class="section" id="principles">
-		<h2>Principles of Ayurveda</h2>
-		<p>L'Ayurvéda repose sur l'équilibre entre le corps et l'esprit et offre de nombreux bienfaits, tels que la réduction du stress, l'élimination des toxines et l'amélioration de la circulation. Bien que les soins ayurvédiques incluent souvent des techniques de massage précises, l'Ayurvéda encourage également à réadapter son mode de vie pour une meilleure harmonie et santé. Reconnue et répertoriée par l’OMS, l’Ayurveda est l'une des médecines traditionnelles considérées comme un système de santé naturel et traditionnel.</p>
-		<!-- Further subsections can be added here -->
-	</section>
+        <!-- Principles of Ayurveda Section -->
+        <article id="principles">
+            <span class="title-container flex">
+                <h2 class="text-4xl title text-accent">Principes de l'Ayurveda</h2>
+            </span>
+            <p>L'Ayurvéda repose sur l'équilibre entre le corps et l'esprit et offre de nombreux bienfaits, tels que la réduction du stress, l'élimination des toxines et l'amélioration de la circulation. Bien que les soins ayurvédiques incluent souvent des techniques de massage précises, l'Ayurvéda encourage également à réadapter son mode de vie pour une meilleure harmonie et santé. Reconnue et répertoriée par l’OMS, l’Ayurveda est l'une des médecines traditionnelles considérées comme un système de santé naturel et traditionnel.</p>
+            <span class="hover-element"></span>
+        </article>
 
-	<!-- Practices and Benefits Section -->
-	<section class="section" id="practices-benefits">
-		<h2>Pratique et bénéfices</h2>
-		<p>Le but de l'Ayurvéda est triple : maintenir la santé, guérir les maladies et réaliser son potentiel personnel. Il décrit plusieurs concepts spécifiques à cette médecine, comme les cinq éléments, les trois doshas, les sept dhatus, les chakras, et bien d'autres..</p>
-		<p>Le massage ayurvédique, l'alimentation, le yoga, et d'autres pratiques font partie intégrante de cette médecine traditionnelle et contribuent à l'harmonie corporelle et psychique. Il est important de rappeler que je ne suis pas une conseillère ayurvédique certifiée et ne possède aucune qualification officielle dans ce domaine, mais je peux vous accompagner à travers une pratique régulière de massages vers un mieux-être et une harmonie totale de votre corps.</p>
-	</section>
+        <!-- Practices and Benefits Section -->
+        <article id="practices-benefits">
+            <span class="title-container flex">
+                <h2 class="text-4xl title text-accent">Pratique et bénéfices</h2>
+            </span>
+            <p>Le but de l'Ayurvéda est triple : maintenir la santé, guérir les maladies et réaliser son potentiel personnel. Il décrit plusieurs concepts spécifiques à cette médecine, comme les cinq éléments, les trois doshas, les sept dhatus, les chakras, et bien d'autres..</p>
+            <p>Le massage ayurvédique, l'alimentation, le yoga, et d'autres pratiques font partie intégrante de cette médecine traditionnelle et contribuent à l'harmonie corporelle et psychique. Il est important de rappeler que je ne suis pas une conseillère ayurvédique certifiée et ne possède aucune qualification officielle dans ce domaine, mais je peux vous accompagner à travers une pratique régulière de massages vers un mieux-être et une harmonie totale de votre corps.</p>
+            <span class="hover-element"></span>
+        </article>
 
-	<!-- Personal Disclaimer Section -->
-	<section class="section" id="disclaimer">
-		<h2>Personal Disclaimer</h2>
-		<p>Selon l'Ayurvéda, chaque individu possède un profil physiologique et mental unique (prakriti) majoritairement influencé par les cinq éléments. Ces cinq éléments - éther, air, feu, eau, terre - sont associés deux par deux pour former trois doshas : vata, pitta et kapha. Ces doshas représentent notre propre nature et notre constitution de base.</p>
-	</section>
+        <!-- Doshas Section -->
+        <article id="doshas">
+            <span class="title-container flex">
+                <h2 class="text-4xl title text-accent">LES TROIS DOSHAS EN AYURVÉDA :</h2>
+            </span>
+            <p>Selon l'Ayurvéda, chaque personne est unique, avec un profil physiologique et mental distinct, connu sous le terme de "Prakriti". Cette singularité est majoritairement influencée par cinq éléments fondamentaux : éther, air, feu, eau et terre. Ces éléments s'associent par paires pour former les trois doshas – vata, pitta, et kapha – qui symbolisent notre nature intrinsèque et notre constitution de base.</p>
+            <p>Notre identité est définie par la combinaison spécifique de ces éléments, présents en proportions variées et établissant notre tendance ou nature profonde. La constitution individuelle, façonnée par l'unique assemblage des trois doshas, est déterminée dès la naissance et constitue l'essence de notre être selon les principes ayurvédiques.</p>
+            <span class="hover-element"></span>
+        </article>
+    </section>
+    <!-- Additional sections as needed -->
+    <Gallery />
+    <Chakras />
 
-	<!-- Doshas Section -->
-	<section class="section" id="doshas">
-		<h2>LES TROIS DOSHAS EN AYURVÉDA :</h2>
-		<p>Chacun de nous contient les cinq éléments en proportions variées, qui définissent notre tendance ou nature profonde - vata, pitta ou kapha. Chaque individu est constitué des trois doshas dans des proportions uniques, déterminées à la naissance et connues en sanskrit sous le nom de "Prakriti".</p>
-	</section>
-
-	<!-- Additional sections as needed -->
 
 </main>
 </Layout>
 
 <style>
 
+article {
+    @apply rounded-xl p-4 relative overflow-hidden border border-light;
+    background-color: rgba(200,190,210,0.6);
+    p {
+        margin-top: 1rem;
+    }
+
+    h2 {
+        @apply text-accent2;
+    }
+
+    .hover-element {
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(120px) saturate(10) brightness(1.5);
+        width: 200px;  /* Example size */
+        height: 200px; /* Example size */
+        background-color: var(--random-color);
+        z-index: -1;
+    }
+}
+
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const containers = document.querySelectorAll('.title-container');
+        let articles = document.querySelectorAll('article');
+        let colors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#0000FF', '#4B0082', '#EE82EE'];
+
+        let shuffledColors = colors.sort(() => 0.5 - Math.random());
+        let uniqueColors = shuffledColors.slice(0, 4);
+
+        function lerp(start, end, factor) {
+            return (1 - factor) * start + factor * end;
+        }
+
+        articles.forEach((article, index) => {
+            // Use CSS variables to set the color
+            article.style.setProperty('--random-color', uniqueColors[index % 4]);
+            let mouseX = 0, mouseY = 0; // Mouse position
+            let elementX = 0, elementY = 0; // Element position
+            const hoverElement = article.querySelector('.hover-element');
+
+            article.addEventListener('mousemove', function(e) {
+                const rect = article.getBoundingClientRect();
+                mouseX = e.clientX - rect.left - (hoverElement.offsetWidth / 2);
+                mouseY = e.clientY - rect.top - (hoverElement.offsetHeight / 2);
+            })
+
+            function animate() {
+                const factor = 0.1; // Adjust this value for smoother or quicker movement
+
+                // Lerp the position
+                elementX = lerp(elementX, mouseX, factor);
+                elementY = lerp(elementY, mouseY, factor);
+
+                // Update the position of the hover element
+                hoverElement.style.left = `${elementX}px`;
+                hoverElement.style.top = `${elementY}px`;
+
+                requestAnimationFrame(animate); // Continue the loop
+            }
+
+            animate();
+        });
+
+        const animateTitle = (title) => {
+            title.style.animation = 'fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards';
+        };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const title = entry.target.querySelector('.title');
+            if (title) {
+              animateTitle(title);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, {
+        threshold: 0.1 // Triggers when 10% of the element is visible
+      });
+
+      containers.forEach(container => observer.observe(container));
+    });
+</script>
