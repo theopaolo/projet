@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
@@ -16,7 +18,7 @@ export default {
 			  'fluid-3xl': 'clamp(1.2rem, 1.5vw, 1.7rem)',
 			},
 			fontFamily: {
-				'serif': ['Georgiano','serif'],
+				'serif': ['GEORGIANO','serif'],
 			},
 		},
 	},
