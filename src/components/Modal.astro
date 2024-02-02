@@ -47,17 +47,13 @@ const { buttonName, title } = Astro.props;
     </template>
 </div>
 
-<style>
-    .modal-box {
-
-        &:after {
-            @apply rounded-xl absolute top-0 left-0 w-full h-full;
-            content: "";
-            background-color: rgba(200,190,210,0.6);
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            z-index: -1;
-        }
+<style >
+    .modal-box:after {
+        @apply rounded-xl absolute top-0 left-0 w-full h-full;
+        content: "";
+        background-color: rgba(200,190,210,0.6);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        z-index: -1;
     }
-
 </style>
