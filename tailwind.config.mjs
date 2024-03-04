@@ -18,7 +18,7 @@ export default {
 			  'fluid-3xl': 'clamp(1.2rem, 1.5vw, 1.7rem)',
 			},
 			fontFamily: {
-				serif: ["Georgiano", ...defaultTheme.fontFamily.serif],
+				serif: ["Cinzel Decorative", ...defaultTheme.fontFamily.serif],
 			},
 		},
 	},

@@ -1,0 +1,126 @@
+<h2 class="text-4xl font-serif text-center text-accent2 mb-8">Témoignages</h2>
+<section class="temoins" id="scrollableDiv">
+    <figure>
+        <blockquote>Pleine de bienveillance et d’attention, Stéphanie m’a mis tout de suite en confiance. Ses gestes sont précis et délicats. J’ai pu m’abandonner en toute confiance pendant une heure de massage d’où je suis ressorti ravi !</blockquote>
+        <figcaption >Martin</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            Ce massage est un nuage ! Doux et enveloppant, il a été marquant. Stéphanie m’a reçu dans une atmosphère apaisante et chaleureuse avec une attitude particulièrement respectueuse. Un toucher sensationnel qui m’a offert une réelle unité corporelle. C’était un moment de liberté que je ne saurais vous expliquer. Je me suis sentie libérée d’une tristesse enfouie (j’ai d’ailleurs beaucoup pleuré les jours suivants, c’était génial !) Libre de mieux vivre. Si toi aussi tu veux adoucir ton quotidien, alors viens ! Merci pour tes doigts de fée
+        </blockquote>
+        <figcaption>Chloé</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            Le massage ayurvédique aux côtés de Stéphanie est incroyablement régénérateur. L’approche et le toucher sont à la fois doux et puissants. On sort de la séance avec l’impression d’avoir nettoyé toutes les mauvaises énergies.     </blockquote>
+        <figcaption>Victoire</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            Stéphanie est une personne très à l’écoute et dans une belle énergie de partage. Le massage Abhyanga m’a beaucoup détendue et revitalisée à la fois, je recommande à toutes les personnes qui souhaitent prendre un temps pour eux. elles, vous serez entre de bonnes mains.
+        <figcaption>Mélissa</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            Un petit message pour te remercier du sacré massage que j’ai reçu de ta part vendredi dernier !
+            J’ai passé un moment incroyable, tu es vachement douée, je ne connaissais pas ce type de massage et je compte bien reprendre des séances vu le bien que ça m’a fait ! Ayant une douleur à l’adducteur le jour J et étant assez stressé par mon taff, je comptais vraiment sur toi pour que ce massage soit bénéfique afin de ne plus avoir mal car j’avais une compétition deux jours plus tard ! Je n’ai plus aucune douleur, j’ai pu faire mon tournoi comme prévu et je t’en remercie infiniment
+        </blockquote>
+        <figcaption>Thomas</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            J’ai passé un super moment de détente! Je n’ai pas l’habitude de me faire masser, mais Stéphanie a parfaitement pris soin de moi, a adapté son toucher à mes besoins et mes tensions physiques et émotionnelles. Je me suis sentie chouchoutée et le massage ayurvédique qu’elle propose (que je n’avais jamais testé auparavant) est vraiment complet, avec différents touchers que j’ai adoré expérimenter. Je recommande sans hésiter !
+          </blockquote>
+        <figcaption>Lyna</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            Le Corps en Poésie c’est à la fois du doux et de l’intensité, un mélange que j’ai toujours recherché dans le massage. La praticienne est à l’écoute des besoins de notre corps et adapte sa pratique pour que le massage nous ressemble. Je ressors détendue, énergisée et enveloppée de douceur, alors je recommande vivement ! Merci !
+        </blockquote>
+        <figcaption>Thaïs</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            Je suis venue ici alors que je traversais une phase difficile et je me suis sentie très bien accueillie, écoutée. Le massage m’a énormément détendu et je n’ai pas vu le temps passer tellement c’était bien ! Je sens à nouveau mon corps
+        </blockquote>
+        <figcaption>Bénédicte</figcaption>
+    </figure>
+    <figure>
+        <blockquote>
+            Ce massage est trop bien ! Je me sens accéder aux différentes couches de mon corps, avec plus d’amplitude et d’ouverture. C’est doux et à la fois profond, j’ai adoré, merci beaucoup !
+        </blockquote>
+        <figcaption>Alma</figcaption>
+    </figure>
+</section>
+
+<style>
+
+    .temoins {
+        @apply flex w-full overflow-x-auto gap-4 items-center;
+    }
+
+    figure{
+        @apply border border-accent2 rounded-md p-4 relative flex-shrink-0 w-1/3 h-fit;
+    }
+
+    figcaption {
+        @apply font-serif text-accent2 text-lg text-left mt-4;
+    }
+
+   .temoins > figure::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(200, 190, 210, 0.6); /* Darker background */
+        border-radius: .5rem;
+        backdrop-filter: blur(3px); /* Adjust blur */
+        z-index: -1; /* Place behind the content */
+    }
+</style>
+
+<script>
+const scrollableDiv = document.getElementById('scrollableDiv');
+/// Add a wheel event listener to handle scrolling.
+scrollableDiv.addEventListener('wheel', function(e) {
+    // Check if we should scroll horizontally within the div.
+    if ((e.deltaY > 0 && this.scrollLeft < this.scrollWidth - this.clientWidth) ||
+        (e.deltaY < 0 && this.scrollLeft > 0)) {
+        e.preventDefault(); // Prevent the default scroll behavior.
+        this.scrollLeft += e.deltaY; // Scroll horizontally.
+    }
+});
+
+// Disable webpage scrolling when the mouse enters the scrollable div.
+scrollableDiv.addEventListener('mouseenter', function() {
+    document.body.style.overflow = 'hidden';
+});
+
+// Re-enable webpage scrolling when the mouse leaves the scrollable div.
+scrollableDiv.addEventListener('mouseleave', function() {
+    document.body.style.overflow = '';
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const parent = document.getElementById('scrollableDiv');
+    shuffleChildren(parent);
+  });
+
+  function shuffleChildren(parent) {
+    const nodes = Array.from(parent.children);
+    const shuffledNodes = shuffleArray(nodes);
+    for (const node of shuffledNodes) {
+      parent.appendChild(node); // Re-appending a node moves it to the new position
+    }
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
+  }
+</script>
