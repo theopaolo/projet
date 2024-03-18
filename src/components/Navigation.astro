@@ -1,17 +1,10 @@
 <nav class="main-nav navanimation">
     <ul>
         <li><a href="index.html">Accueil</a></li>
-        <!-- <span>
-            <svg width="24" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.2766 25.8895C17.7379 23.6874 18.8322 21.6742 20.4207 20.1052C22.0092 18.5362 24.0203 17.4821 26.199 17.0766L32 16L26.199 14.9234C24.0203 14.5179 22.0092 13.4638 20.4207 11.8948C18.8322 10.3258 17.7379 8.3126 17.2766 6.11052L16 0L14.7234 6.11052C14.2621 8.3126 13.1678 10.3258 11.5793 11.8948C9.99084 13.4638 7.97968 14.5179 5.80096 14.9234L0 16L5.80096 17.0766C7.97968 17.4821 9.99084 18.5362 11.5793 20.1052C13.1678 21.6742 14.2621 23.6874 14.7234 25.8895L16 32L17.2766 25.8895Z" fill="#877b9d"/>
-            </svg>
-        </span> -->
+        <li><a href="index.html#massages">Massages</a></li>
         <li><a href="ayurveda.html">L'Ayurveda</a></li>
-        <!-- <span>
-            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.2766 25.8895C17.7379 23.6874 18.8322 21.6742 20.4207 20.1052C22.0092 18.5362 24.0203 17.4821 26.199 17.0766L32 16L26.199 14.9234C24.0203 14.5179 22.0092 13.4638 20.4207 11.8948C18.8322 10.3258 17.7379 8.3126 17.2766 6.11052L16 0L14.7234 6.11052C14.2621 8.3126 13.1678 10.3258 11.5793 11.8948C9.99084 13.4638 7.97968 14.5179 5.80096 14.9234L0 16L5.80096 17.0766C7.97968 17.4821 9.99084 18.5362 11.5793 20.1052C13.1678 21.6742 14.2621 23.6874 14.7234 25.8895L16 32L17.2766 25.8895Z" fill="#877b9d"/>
-            </svg>
-        </span> -->
+        <!-- <li><a href="ateliers.html">Ateliers</a></li> -->
+        <!-- <li><a href="journal.html">Journal</a></li> -->
         <li><a href="index.html#contact">Contacter</a></li>
     </ul>
 </nav>
@@ -32,7 +25,7 @@
     width: fit-content;
     border-radius: 9999px;
     position: fixed;
-    top: 1rem;
+    bottom: 2rem;
     margin-left: 50%;
     transform: translateX(-50%);
     opacity: 1;
@@ -56,16 +49,11 @@
   nav ul {
     position: relative;
     display: flex;
-    gap: .5rem;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
     z-index: 3; /* Ensure list items are above the pseudo-element */
-
-    @screen md {
-      font-size: 1.25rem;
-      gap: 1rem;
-    }
   }
 
   nav a {
@@ -75,7 +63,7 @@
   @keyframes navanimation {
     0%,
     50% {
-      transform: translate(-50%, -100%);
+      transform: translate(-50%, 100%);
       opacity: 0;
     }
     50%,
@@ -94,6 +82,4 @@
     opacity: 0;
     animation: navanimation 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1.5s forwards;
   }
-
-
 </style>

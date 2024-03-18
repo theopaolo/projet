@@ -1,5 +1,5 @@
 <h2 class="text-4xl font-serif text-center text-accent2 mb-8">Témoignages</h2>
-<section class="temoins" id="scrollableDiv">
+<section class="temoins relative" id="scrollableDiv">
     <figure>
         <blockquote>Pleine de bienveillance et d’attention, Stéphanie m’a mis tout de suite en confiance. Ses gestes sont précis et délicats. J’ai pu m’abandonner en toute confiance pendant une heure de massage d’où je suis ressorti ravi !</blockquote>
         <figcaption >Martin</figcaption>
@@ -60,11 +60,15 @@
     }
 
     figure{
-        @apply border border-accent2 rounded-md p-4 relative flex-shrink-0 w-1/3 h-fit;
+        @apply border border-accent2 rounded-md p-4 relative flex-shrink-0 w-full md:w-1/3 h-fit;
     }
 
     figcaption {
-        @apply font-serif text-accent2 text-lg text-left mt-4;
+        @apply font-serif text-accent2 text-lg text-center mt-4;
+    }
+
+    blockquote {
+      @apply text-base;
     }
 
    .temoins > figure::after {

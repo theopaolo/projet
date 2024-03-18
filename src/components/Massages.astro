@@ -1,0 +1,19 @@
+<section class="my-40" id="massages">
+    <h2 class="text-4xl font-serif text-center text-accent2 mb-8">Carte des Massages</h2>
+    <ul class="flex flex-col gap-6">
+        <li class="flex items-center justify-between text-xl text-accent2"><span class="text-lg">Massage A</span> 00€</li>
+        <li class="flex items-center justify-between text-xl text-accent2"><span class="text-lg">Massage B</span> 00€</li>
+        <li class="flex items-center justify-between text-xl text-accent2"><span class="text-lg">Massage C</span> 00€</li>
+    </ul>
+<section>
+
+<style>
+    span {
+        @apply relative md:flex items-center w-full;
+    }
+
+    span::after {
+        @apply absolute md:static mx-auto block w-full md:w-[90%] h-[1px] bg-accent2 content-[''];
+        border-bottom: 1px dotted var(--text-color);
+    }
+</style>

@@ -22,7 +22,7 @@ import Gallery from '../components/Gallery.astro';
         <p class="text-fluid-3xl text-center font-thin">L'Ayurvéda, signifiant "science de la vie" en sanskrit, est une science ancestrale issue de la civilisation de la vallée de l'Indus. </p>
     </header>
 
-    <section class="max-w-screen-xl mx-auto grid mr-10 lg:mt-20 gap-4">
+    <section class="max-w-screen-xl px-4 mx-auto grid lg:mt-20 gap-4">
         <!-- History and Origin Section -->
         <article id="history-origin">
             <span class="title-container flex">
@@ -75,8 +75,12 @@ article {
     @apply rounded-xl p-4 relative overflow-hidden border border-light;
     background-color: rgba(200,190,210,0.6);
     p {
-        margin-top: 1rem;
-        font-size: 1.25rem;
+        font-size: 1rem;
+
+        @screen md {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
     }
 
     h2 {

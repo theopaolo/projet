@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Chakras from '../components/Chakras.astro';
+import Modal from '../components/Modal.astro';
+import Form from '../components/Form.astro';
+import Cal from '../components/Cal.astro';
+---
+
+<Layout title="Contact">
+<main class="max-w-screen-xl mx-auto mt-20">
+    <header class="intro">
+        <h1 class="text-4xl text-center flex flex-col">
+            <span class="title-container flex justify-center">
+                <span class="title">Contact</span>
+            </span>
+        </h1>
+    </header>
+
+        <div class="flex flex-col sm:flex-row gap-4 mx-auto max-w-screen-2xl mt-20">
+
+            <Modal buttonName="Me contacter" title="Formulaire de Contact">
+              <Form />
+            </Modal>
+
+            <a href="https://www.instagram.com/lecorpsenpoesie" target="_blank" class="bg-accent rounded-lg p-4 border transition-colors group hover:bg-light border-indigo-400 shadow-inner flex-1 aspect-[2/1] ">
+                <h3 class="title-container flex text-3xl items-center h-full justify-center font-serif text-light group-hover:text-accent active:text-accent2">
+                    <span class="title">Instagram</span>
+                </h3>
+            </a>
+
+            <Modal buttonName="Prendre rendez-vous" title="Calendrier">
+              <Cal />
+            </Modal>
+        </div>
+    <!-- Additional sections as needed -->
+    <Chakras />
+
+
+</main>
+</Layout>
+
+<style>
+
+article {
+    @apply rounded-xl p-4 relative overflow-hidden border border-light;
+    background-color: rgba(200,190,210,0.6);
+    p {
+        margin-top: 1rem;
+        font-size: 1.25rem;
+    }
+
+    h2 {
+        @apply text-accent2;
+    }
+
+    .hover-element {
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(120px) saturate(10) brightness(1.5);
+        width: 200px;  /* Example size */
+        height: 200px; /* Example size */
+        background-color: var(--random-color);
+        z-index: -1;
+    }
+}
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const containers = document.querySelectorAll('.title-container');
+        let articles = document.querySelectorAll('article');
+        let colors = ['#FF0000', '#FFA500', '#FFFF00', '#008000', '#0000FF', '#4B0082', '#EE82EE'];
+
+        let shuffledColors = colors.sort(() => 0.5 - Math.random());
+        let uniqueColors = shuffledColors.slice(0, 4);
+
+        function lerp(start, end, factor) {
+            return (1 - factor) * start + factor * end;
+        }
+
+        articles.forEach((article, index) => {
+            // Use CSS variables to set the color
+            article.style.setProperty('--random-color', uniqueColors[index % 4]);
+            let mouseX = 0, mouseY = 0; // Mouse position
+            let elementX = 0, elementY = 0; // Element position
+            const hoverElement = article.querySelector('.hover-element');
+
+            article.addEventListener('mousemove', function(e) {
+                const rect = article.getBoundingClientRect();
+                mouseX = e.clientX - rect.left - (hoverElement.offsetWidth / 2);
+                mouseY = e.clientY - rect.top - (hoverElement.offsetHeight / 2);
+            })
+
+            function animate() {
+                const factor = 0.1; // Adjust this value for smoother or quicker movement
+
+                // Lerp the position
+                elementX = lerp(elementX, mouseX, factor);
+                elementY = lerp(elementY, mouseY, factor);
+
+                // Update the position of the hover element
+                hoverElement.style.left = `${elementX}px`;
+                hoverElement.style.top = `${elementY}px`;
+
+                requestAnimationFrame(animate); // Continue the loop
+            }
+
+            animate();
+        });
+
+        const animateTitle = (title) => {
+            title.style.animation = 'fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards';
+        };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const title = entry.target.querySelector('.title');
+            if (title) {
+              animateTitle(title);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, {
+        threshold: 0.1 // Triggers when 10% of the element is visible
+      });
+
+      containers.forEach(container => observer.observe(container));
+    });
+</script>

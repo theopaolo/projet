@@ -6,7 +6,7 @@
     }
 
     #canvas {
-        filter: blur(120px);
+        filter: blur(150px);
         position: fixed;
         top: 0;
         left: 0;
@@ -14,7 +14,7 @@
     }
 </style>
 <script>
-    class Circle {
+class Circle {
     constructor(radius, color, x, y, startFrame) {
         this.radius = radius;
         this.color = color;
@@ -49,6 +49,7 @@
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
     let circles = [];
@@ -88,6 +89,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
-    animate(); // Start the animation loop
+    animate();
 });
 </script>

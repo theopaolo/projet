@@ -111,6 +111,7 @@ const { title } = Astro.props;
 
   .title-container {
     overflow: hidden;
+    padding-bottom: 1rem;
   }
 
   .title-container .title {
@@ -125,9 +126,6 @@ const { title } = Astro.props;
     opacity: 0;
     animation: fadeUp 1s ease-in 2s forwards;
   }
-
-
-
   ul {
     list-style-type: none;
     margin: 0;
@@ -165,8 +163,8 @@ const { title } = Astro.props;
   .intro .content h1,
   .cal h2,
   .intro h1 {
-    font-size: clamp(2rem, 20vw, 15rem);
-    line-height: 1.25;
+    font-size: clamp(2rem, 15vw, 8rem);
+    line-height: 1;
   }
 
   form input:focus,
