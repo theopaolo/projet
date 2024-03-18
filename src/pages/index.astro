@@ -59,12 +59,11 @@ const randomImage = images[randomIndex];
       </div>
     </div>
 
-    <div>
-      <p
-        class="mx-auto text-center max-w-[75ch] leading-normal font-light text-fluid-3xl"
-      >
-        Bienvenue ! Je suis Stéphanie, danseuse professionnelle et praticienne certifiée en massages bien-être depuis 2023. Ma passion pour la danse contemporaine m'a menée à explorer le corps humain sous toutes ses formes, découvrant la profondeur de son potentiel pour le bien-être et la relaxation. Formée au centre Temana à Lyon, j'ai acquis des compétences uniques pour offrir des expériences de massage personnalisées et apaisantes.
-      </p>
+    <div class="mx-auto max-w-[75ch] leading-normal font-light text-fluid-3xl flex flex-col gap-4">
+      <p>
+      Bienvenue ! Je suis Stéphanie, praticienne certifiée en massages ayurvédiques depuis 2023 et danseuse professionnelle. Mon travail & ma passion pour la danse me mènent à explorer constamment le corps humain sous toutes ses formes, à rechercher un équilibre de vie et des complémentarités de bien-être à travers diverses pratiques. </p>
+      <p>Formée au centre Temana à Lyon, à Greens Ayurveda en Inde et au centre ayurvédique O Banyan dans l’Aude, j'ai acquis des compétences uniques pour offrir des expériences de massage personnalisées, complètes et harmonieuses. </p>
+      <p class="text-center">J’espère vous faire prendre goût à ce voyage intérieur !</p>
     </div>
 
     <div class="mt-16 max-w-screen-lg mx-auto">
@@ -90,9 +89,10 @@ const randomImage = images[randomIndex];
           </h2>
         </span>
 
-        <p class="w-full ml-auto mt-4">
-          Mon parcours est marqué par une quête constante de connaissance et d'épanouissement corporel. Cette démarche m'a permis de m'immerger dans diverses formations et stages, enrichissant ma pratique. Mon objectif est simple : utiliser mon expertise en danse et en massage pour vous aider à trouver détente et harmonie, en répondant aux besoins spécifiques de votre corps et de votre esprit.
-        </p>
+        <div class="w-full ml-auto mt-4 flex flex-col gap-4">
+          <p>Mon parcours est marqué par une quête constante de connaissances et d'épanouissement. Cette démarche me permet de m'immerger continuellement dans diverses formations et stages, enrichissant ma pratique à travers des apprentissages qui se tournent vers le yoga, les pranayama (les techniques de respiration du yoga), la proprioception du corps.</p>
+          <p>Mon objectif est simple : utiliser mon expertise en massage et en pratiques corporelles pour vous aider à trouver détente et harmonie, en répondant aux besoins spécifiques de votre corps et de votre esprit.</p>
+        </div>
 
         <span class="title-container flex">
           <h2 class="text-4xl mt-12 title text-accent2">
@@ -107,6 +107,19 @@ const randomImage = images[randomIndex];
 
     <Temoignages />
     <Massages />
+
+    <div class="text-center">
+      <h3 class="title-container flex text-3xl items-center h-full justify-center font-serif text-accent2">Retrouvez-moi</h3>
+      <p class="inline-block">A domicile ou en cabinet à
+        <a href="https://pampacoworking.fr/" target="_blank" class="border-b border-accent2">Pampa Coworking</a>
+      </p>
+      <address class="inline-block  ">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 inline-block" aria-hidden="true">
+          <path fill-rule="evenodd" d="m9.69 18.933.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 0 0 .281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 14.988 17 12.493 17 9A7 7 0 1 0 3 9c0 3.492 1.698 5.988 3.355 7.584a13.731 13.731 0 0 0 2.273 1.765 11.842 11.842 0 0 0 .976.544l.062.029.018.008.006.003ZM10 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" clip-rule="evenodd" />
+        </svg>
+        <a class="border-b border-accent2 not-italic" href="https://www.google.com/maps/place/108+Rue+Chaponnay,+69003+Lyon/@45.7583829,4.8472547,17z" target="_blank">Lyon 3 au 108 rue Chaponnay.</a>
+      </address>
+    </div>
 
     <div class="flex flex-col sm:flex-row gap-4 mx-auto max-w-screen-2xl mt-20">
 
